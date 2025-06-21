@@ -1,3 +1,2 @@
 #!/bin/bash
 printenv
-echo "The value of the variable USER is: $USER"
