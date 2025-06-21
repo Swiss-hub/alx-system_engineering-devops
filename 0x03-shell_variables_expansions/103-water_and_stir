@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((5#$(echo $WATER | tr 'water' '01234') + 6#$(echo $STIR | tr 'stir.' '012345'))) | \ awk '{n=$1; s=""; a="bestchol"; while(n){s=substr(a,n%9+1,1) s; n=int(n/9)}; print s}'
+w=$(echo "$WATER" | tr 'water' '01234') s=$(echo "$STIR" | tr 'stir.' '012345') sum=$((5#$w + 6#$s)) out="" digits="bestchol" while [ "$sum" -gt 0 ] do   d=$((sum % 9))  out="${digits:$d:1}$out"  sum=$((sum / 9)) done echo "$out"
