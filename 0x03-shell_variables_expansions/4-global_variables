@@ -1,2 +1,2 @@
 #!/bin/bash
-env | grep '^HBTN='
+env | grep 'HBTN=89' | cut -d '=' -f 2 | tr -d '\n'
