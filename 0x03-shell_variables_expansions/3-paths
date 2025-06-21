@@ -1,10 +1,2 @@
 #!/bin/bash
 echo "$PATH" | tr ':' '\n' | grep -c .
-# This script counts the number of directories in the PATH variable.
-# It does this by replacing the colons with newlines and counting the resulting lines.
-# The output is the number of directories in the PATH variable.
-# The script uses the `tr` command to translate colons to newlines and then uses `grep -c .` to count non-empty lines.
-# Usage: ./3-paths
-# Output: The number of directories in the PATH variable.
-# Example output: 4
-# Note: The output may vary depending on the user's PATH variable. 
