@@ -1,2 +1,10 @@
 #!/bin/bash #!/ova/onfu
-i=0 while read line do if [ $((i%2)) -eq 0 ] then echo "$line" fi i=$((i+1)) done
+i=0
+while read line
+do
+if [ $((i%2)) -eq 0 ]
+then
+echo "$line"
+fi
+i=$((i+1))
+done
