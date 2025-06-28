@@ -1,2 +1,17 @@
 #!/bin/bash
-w=$(echo "$WATER" | tr 'water' '01234') s=$(echo "$STIR" | tr 'stir.' '012345') sum=$((5#$w + 6#$s)) out="" digits="bestchol" while [ "$sum" -gt 0 ] do   d=$((sum % 9))  out="${digits:$d:1}$out"  sum=$((sum / 9)) done echo "$out"
+w=$(echo "$WATER" | tr 'water' '01234')
+s=$(echo "$STIR" | tr 'stir.' '012345')
+sum=$((5#$w + 6#$s))
+digits="bestchol"
+out=""
+if [ "$sum" -eq 0 ]
+then
+  out="b"
+fi
+while [ "$sum" -gt 0 ]
+do
+  d=$((sum % 9))
+  out="${digits:$d:1}$out"
+  sum=$((sum / 9))
+done
+echo "$out"
