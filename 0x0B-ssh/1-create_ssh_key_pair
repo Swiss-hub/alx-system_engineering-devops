@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# Remove any existing key files to avoid conflicts
+rm -f school school.pub
 # Create RSA key pair with 4096 bits and passphrase 'betty'
 ssh-keygen -t rsa -b 4096 -f school -N betty 
