@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Bash script to audit DNS records for subdomains of a given domain
+
+# Ignore SC2086
+# shellcheck disable=SC2086
+
+# Function to get and display subdomain info
+get_subdomain_info() {
+    local domain=$1
+    local subdomain=$2
+
+    result=$(dig ${subdomain}.${domain} +short | head -n1)
+    if [[ -n "$result" ]]; then
+        echo "The subdomain ${subdomain} is a A record and points to ${result}"
+    else
+        echo "No A record found for ${subdomain}.${domain}"
+    fi
+}
+
+# Main script logic
+domain=$1
+subdomain=$2
+
+if [ -z "$domain" ]; then
+    echo "Usage: $0 domain [subdomain]"
+    exit 1
+fi
+
+if [ -n "$subdomain" ]; then
+    get_subdomain_info "$domain" "$subdomain"
+else
+    for sub in www lb-01 web-01 web-02
+    do
+        get_subdomain_info "$domain" "$sub"
+    done
+fi
